@@ -1,0 +1,21 @@
+import { useHoverStore } from "@/app/store";
+export default function MailOutline() {
+  const { active, from } = useHoverStore();
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      height="24px"
+      viewBox="0 -960 960 960"
+      width="24px"
+      fill={active && from === "navbar" ? "url(#gradient)" : "#fff"}
+    >
+      <defs>
+        <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stopColor="#00c6fb" />
+          <stop offset="100%" stopColor="#005bea" />
+        </linearGradient>
+      </defs>
+      <path d="M160-160q-33 0-56.5-23.5T80-240v-480q0-33 23.5-56.5T160-800h640q33 0 56.5 23.5T880-720v480q0 33-23.5 56.5T800-160H160Zm320-280L160-640v400h640v-400L480-440Zm0-80 320-200H160l320 200ZM160-640v-80 480-400Z" />
+    </svg>
+  );
+}
