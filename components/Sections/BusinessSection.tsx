@@ -28,7 +28,7 @@ export default function BusinessSection() {
     }),
   };
   return (
-    <section className="py-20">
+    <div className="py-20">
       <div className="px-10">
         <p className="text-[#333] font-medium text-2xl leading-none">
           事業内容
@@ -125,6 +125,6 @@ export default function BusinessSection() {
           </div>
         </div>
       </div>
-    </section>
+    </div>
   );
 }

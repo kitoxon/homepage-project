@@ -28,7 +28,7 @@ export default function AboutSection() {
     threshold: 0.5,
   });
   return (
-    <section className="flex items-center w-full h-auto justify-center">
+    <div className="flex items-center w-full h-auto justify-center">
       <div className="p-20 w-7xl flex flex-row content-end items-end justify-start max-w-full flex-nowrap h-auto">
         <div className="flex mr-5 flex-col justify-center w-[calc(50%-40px)] max-w-[calc(50%-40px)] h-auto flex-nowrap">
           <motion.div
@@ -70,6 +70,6 @@ export default function AboutSection() {
           </p>
         </div>
       </div>
-    </section>
+    </div>
   );
 }

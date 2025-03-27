@@ -7,7 +7,7 @@ import RecruitSection from "@/components/Sections/RecruitSection";
 
 export default function Home() {
   return (
-    <main>
+    <main className="overflow-clip">
       <section id="hero" className="bg-white">
         <HeroSection />
       </section>
@@ -20,10 +20,10 @@ export default function Home() {
       <section id="company" className="bg-white">
         <CompanySection />
       </section>
-      <section id="news" className="bg-white">
+      <section id="news" className="bg-white rounded-bl-[150px]">
         <NewsSection />
       </section>
-      <section id="recruit" className="bg-white">
+      <section id="recruit">
         <RecruitSection />
       </section>
       <div className="bg-[url(/assets/fixed-img.webp)] h-screen fixed bg-center bg-cover z-[-3] w-full [transition:inherit] top-[0] left-[0] filter brightness-[0.3] grayscale"></div>

@@ -1,19 +1,10 @@
 import { fetchPost } from "@/sanity/lib/fetchPost";
 import Image from "next/image";
 import { urlFor } from "@/sanity/imageUrl";
+import { getPlainText } from "@/utils/function";
 export default async function NewsPage() {
-  const news = await fetchPost();
-  const getPlainText = (body: any) => {
-    return (
-      body
-        .filter((block: any) => block._type === "block") // Get only text blocks
-        .map((block: any) =>
-          block.children.map((child: any) => child.text).join(" "),
-        )
-        .join(" ") // Join all paragraphs
-        .slice(0, 102) + "..."
-    ); // Trim text
-  };
+  const limit = 6;
+  const news = await fetchPost(limit);
   return (
     <div className="p-6 mt-[140px]">
       <h1 className="text-[64px] text-center font-bold">お知らせ</h1>

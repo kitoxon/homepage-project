@@ -2,82 +2,82 @@
 @tailwind utilities;
 @import "tailwindcss";
 @theme {
-    --font-poppins: Poppins, sans-serif;
+  --font-poppins: Poppins, sans-serif;
 }
 html {
-    scroll-behavior: smooth;
+  scroll-behavior: smooth;
 }
 body {
-    background: #fff;
-    transition: background 0.5s cubic-bezier(0.4, 0.4, 0, 1);
+  background: #fff;
+  transition: background 0.5s cubic-bezier(0.4, 0.4, 0, 1);
 }
 :root {
-    --g-color-0: #00c6fb;
-    --g-position-0: 0%;
-    --g-color-1: #005bea;
-    --g-position-1: 100%;
-    --g-color-2: #005bea;
-    --g-position-2: 100%;
-    --g-color-3: #005bea;
-    --g-position-3: 100%;
-    --g-color-4: #005bea;
-    --g-position-4: 100%;
-    --g-color-5: #005bea;
-    --g-position-5: 100%;
-    --g-color-6: #005bea;
-    --g-position-6: 100%;
-    --g-color-7: #005bea;
-    --g-position-7: 100%;
-    --g-color-8: #005bea;
-    --g-position-8: 100%;
-    --g-color-9: #005bea;
-    --g-position-9: 100%;
-    --g-color-10: #005bea;
-    --g-position-10: 100%;
-    --g-color-11: #005bea;
-    --g-position-11: 100%;
-    --g-angle: 0deg;
+  --g-color-0: #00c6fb;
+  --g-position-0: 0%;
+  --g-color-1: #005bea;
+  --g-position-1: 100%;
+  --g-color-2: #005bea;
+  --g-position-2: 100%;
+  --g-color-3: #005bea;
+  --g-position-3: 100%;
+  --g-color-4: #005bea;
+  --g-position-4: 100%;
+  --g-color-5: #005bea;
+  --g-position-5: 100%;
+  --g-color-6: #005bea;
+  --g-position-6: 100%;
+  --g-color-7: #005bea;
+  --g-position-7: 100%;
+  --g-color-8: #005bea;
+  --g-position-8: 100%;
+  --g-color-9: #005bea;
+  --g-position-9: 100%;
+  --g-color-10: #005bea;
+  --g-position-10: 100%;
+  --g-color-11: #005bea;
+  --g-position-11: 100%;
+  --g-angle: 0deg;
 }
 
 .bg-gradient-custom {
-    /* Define custom properties for flexibility */
-    --g-angle: 45deg;
-    --g-color-0: #ff6b6b; /* Example color */
-    --g-color-1: #4ecdc4; /* Example color */
-    --g-position-0: 0%;
-    --g-position-1: 100%;
+  /* Define custom properties for flexibility */
+  --g-angle: 45deg;
+  --g-color-0: #ff6b6b; /* Example color */
+  --g-color-1: #4ecdc4; /* Example color */
+  --g-position-0: 0%;
+  --g-position-1: 100%;
 
-    background: linear-gradient(
-        var(--g-angle),
-        var(--g-color-0) var(--g-position-0),
-        var(--g-color-1) var(--g-position-1)
-    );
-    transition: background 0.3s ease-in-out;
-    border-radius: 25px;
-    height: 50px;
-    padding: 0 20px;
-    color: #fff;
-    position: relative; /* Ensures proper stacking */
-    display: inline-flex; /* Better for button alignment */
-    align-items: center;
-    justify-content: center;
+  background: linear-gradient(
+    var(--g-angle),
+    var(--g-color-0) var(--g-position-0),
+    var(--g-color-1) var(--g-position-1)
+  );
+  transition: background 0.3s ease-in-out;
+  border-radius: 25px;
+  height: 50px;
+  padding: 0 20px;
+  color: #fff;
+  position: relative; /* Ensures proper stacking */
+  display: inline-flex; /* Better for button alignment */
+  align-items: center;
+  justify-content: center;
 }
 
 .bg-gradient-custom:hover {
-    background: #fff; /* Background turns white on hover */
+  background: #fff; /* Background turns white on hover */
 }
 
 .bg-gradient-custom span {
-    transition: color 0.3s ease-in-out; /* Smooth text color transition */
+  transition: color 0.3s ease-in-out; /* Smooth text color transition */
 }
 
 .bg-gradient-custom:hover span {
-    background: linear-gradient(
-        var(--g-angle),
-        var(--g-color-0) var(--g-position-0),
-        var(--g-color-1) var(--g-position-1)
-    );
-    -webkit-background-clip: text; /* Clips the gradient to text */
-    background-clip: text; /* Standard property for broader support */
-    color: transparent; /* Makes the text transparent to show the gradient */
+  background: linear-gradient(
+    var(--g-angle),
+    var(--g-color-0) var(--g-position-0),
+    var(--g-color-1) var(--g-position-1)
+  );
+  -webkit-background-clip: text; /* Clips the gradient to text */
+  background-clip: text; /* Standard property for broader support */
+  color: transparent; /* Makes the text transparent to show the gradient */
 }
