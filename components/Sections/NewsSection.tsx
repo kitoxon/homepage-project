@@ -3,7 +3,7 @@ import NewsList from "../News/NewsList";
 export default async function NewsSection() {
   const news = await fetchPost(5);
   return (
-    <div className="min-h-screen pt-[280px] pb-[140px] flex flex-col items-center relative overflow-hidden">
+    <div className="min-h-screen pt-20 pb-[140px] flex flex-col items-center relative overflow-hidden">
       <div className="w-full max-w-[1280px] px-10 relative mx-auto">
         <div
           className="absolute top-[122px] left-[142px] w-[2000px] h-[calc(100%-140px)] bg-[#f5f5f5]

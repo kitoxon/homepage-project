@@ -52,7 +52,7 @@ export default function CompanySection() {
           initial="hidden"
           animate={inView2 ? "visible" : "hidden"}
           variants={imageVariants}
-          className="pr-10 w-[50%] mb-[-200px]"
+          className="pr-10 w-[50%]"
         >
           <div className="bg-[url(/assets/company-img.webp)] h-[466px] rounded-br-[50px] rounded-tr-[50px] bg-cover bg-center"></div>
         </motion.div>
@@ -61,7 +61,7 @@ export default function CompanySection() {
           initial="hidden"
           animate={inView1 ? "visible" : "hidden"}
           variants={divVariants}
-          className="text-[#333] text-[15px] w-[50%] leading-[1.8]"
+          className="text-[#333] text-[15px] w-[50%] leading-[1.8] pb-[200px]"
         >
           <div className="p-[30px] flex border-b-1 w-full">
             <p className="min-w-[120px] font-medium">会社名</p>
