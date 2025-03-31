@@ -4,9 +4,14 @@ export async function GET() {
   const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000";
   const news = await fetchPost();
   const staticUrls = ["", "/news", "/contact"];
+  const getValidDate = (date: string | undefined) => {
+    const d = new Date(date || "");
+    return isNaN(d.getTime()) ? new Date().toISOString() : d.toISOString();
+  };
+
   const newsUrls = news.map((article: any) => ({
     loc: `${baseUrl}/news/${article.slug.current}`,
-    lastmod: new Date(article._updatedAt || article._createdAt).toISOString(),
+    lastmod: getValidDate(article.publishedAt),
   }));
 
   const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
