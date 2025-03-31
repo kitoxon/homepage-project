@@ -1,3 +1,4 @@
+"use client";
 import Image from "next/image";
 import { companyInfo } from "@/constants/company";
 import { Link as ScrollLink } from "react-scroll";
@@ -6,8 +7,37 @@ import XIcon from "./Icons/XIcon";
 import FbIcon from "./Icons/FbIcon";
 import FileIcon from "./Icons/FileIcon";
 import { useHoverStore } from "@/app/store";
+import ArrowForward from "./Icons/ArrowForward";
+import FooterLink from "./Global/FooterLink";
 export default function Footer() {
   const { setActive, setFrom } = useHoverStore();
+  const links = [
+    {
+      title: "トップ",
+      href: "/",
+      to: "hero",
+    },
+    {
+      title: "私たちについて",
+      href: "/#about",
+      to: "about",
+    },
+    {
+      title: "事業内容",
+      href: "/#business",
+      to: "business",
+    },
+    {
+      title: "会社概要",
+      href: "/#company",
+      to: "company",
+    },
+    {
+      title: "新着情報",
+      href: "/#news",
+      to: "news",
+    },
+  ];
   return (
     <footer className="rounded-tr-[150px] bg-white py-[60px]">
       <div className="max-w-[80rem] w-full mx-auto px-10">
@@ -39,32 +69,11 @@ export default function Footer() {
 
           <div className="flex w-1/2 flex-col">
             <ul className="w-full">
-              <li className="cursor-pointer transition duration-200 font-medium text-[15px] h-[50px] border-b content-center">
-                <ScrollLink to="hero" smooth={true} duration={200}>
-                  トップ
-                </ScrollLink>
-              </li>
-              <li className="cursor-pointer transition duration-200 font-medium text-[15px] h-[50px] border-b content-center">
-                <ScrollLink to="about" smooth={true} duration={200}>
-                  私たちについて
-                </ScrollLink>
-              </li>
-              <li className="cursor-pointer transition duration-200 font-medium text-[15px] h-[50px] border-b content-center">
-                <ScrollLink to="business" smooth={true} duration={200}>
-                  事業内容
-                </ScrollLink>
-              </li>
-              <li className="cursor-pointer transition duration-200 font-medium text-[15px] h-[50px] border-b content-center">
-                <ScrollLink to="company" smooth={true} duration={200}>
-                  会社概要
-                </ScrollLink>
-              </li>
-
-              <li className="cursor-pointer transition duration-200 font-medium text-[15px] h-[50px] border-b content-center">
-                <ScrollLink to="news" smooth={true} duration={200}>
-                  新着情報
-                </ScrollLink>
-              </li>
+              {links.map((link) => (
+                <li key={link.title}>
+                  <FooterLink link={link} />
+                </li>
+              ))}
             </ul>
             <div className="mt-10 flex gap-5 text-xs leading-[1.4]">
               <Link
@@ -75,7 +84,7 @@ export default function Footer() {
               </Link>
               <Link
                 className="hover:bg-[linear-gradient(0deg,_#00c6fb_0%,_#005bea_100%)] hover:bg-clip-text hover:text-transparent transition-all duration-300 ease-[cubic-bezier(0.4, 0.4, 0, 1)]"
-                href="/"
+                href="/privacypolicy"
               >
                 プライバシーポリシー
               </Link>

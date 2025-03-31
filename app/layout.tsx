@@ -4,7 +4,7 @@ import Navbar from "@/components/Navbar";
 import "../styles/global.css";
 import { Noto_Sans_JP, Poppins } from "next/font/google";
 import Footer from "@/components/Footer";
-
+import { usePathname } from "next/navigation";
 const notoSansJP = Noto_Sans_JP({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
@@ -18,12 +18,14 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const pathname = usePathname();
+  const isStudio = pathname?.startsWith("/studio");
   return (
     <html lang="ja" className={`${notoSansJP.className}`}>
       <body>
-        <Navbar />
+        {!isStudio && <Navbar />}
         {children}
-        <Footer />
+        {!isStudio && <Footer />}
       </body>
     </html>
   );

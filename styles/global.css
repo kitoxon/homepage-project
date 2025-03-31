@@ -81,3 +81,6 @@ body {
   background-clip: text; /* Standard property for broader support */
   color: transparent; /* Makes the text transparent to show the gradient */
 }
+p:empty::after {
+  content: "\00A0";
+}

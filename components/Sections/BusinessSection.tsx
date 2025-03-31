@@ -115,7 +115,7 @@ export default function BusinessSection() {
               </p>
               <div className="my-[30px] flex justify-center">
                 <GradientButton
-                  iconComponent={<ArrowDownCircle />}
+                  iconComponent={ArrowDownCircle}
                   text="詳しくはこちら"
                   href="https://spoship.com"
                   from="spoship"

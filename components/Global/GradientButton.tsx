@@ -1,13 +1,14 @@
 "use client";
 
-import React, { ReactElement } from "react";
+import React, { ComponentType, ReactElement, useState } from "react";
 import { useHoverStore } from "@/app/store";
+import { hover } from "framer-motion";
 type IconButtonProps = {
   text: string;
   onClick?: () => void;
   href?: string;
   className?: string;
-  iconComponent: ReactElement;
+  iconComponent: ComponentType<{ fill: string }>;
   from: string;
 };
 const baseStyle =
@@ -20,13 +21,15 @@ export default function IconButton({
   onClick,
   href,
   className,
-  iconComponent,
+  iconComponent: IconComponent,
   from,
 }: IconButtonProps) {
   const { setActive, setFrom } = useHoverStore();
+  const [hovered, setHovered] = useState(false);
+  const fill = hovered ? "url(#gradient)" : "#fff";
   const commonContent = (
     <>
-      {iconComponent}
+      <IconComponent fill={fill} />
       <span className="transition-all duration-300 font-medium group-hover:bg-[linear-gradient(0deg,_#00c6fb_0%,_#005bea_100%)] group-hover:bg-clip-text group-hover:text-transparent">
         {text}
       </span>
@@ -35,12 +38,8 @@ export default function IconButton({
   if (href) {
     return (
       <a
-        onMouseEnter={() => {
-          setActive(true), setFrom(from);
-        }}
-        onMouseLeave={() => {
-          setActive(false), setFrom("");
-        }}
+        onMouseEnter={() => setHovered(true)}
+        onMouseLeave={() => setHovered(false)}
         href={href}
         className={`${baseStyle} ${gradientStyle} ${className} group`}
       >

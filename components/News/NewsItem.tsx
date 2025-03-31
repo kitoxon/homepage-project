@@ -8,6 +8,7 @@ type NewsItemProps = {
     slug: any;
     mainImage: any;
     publishedAt: string;
+    categories: any[];
   };
 };
 export default function NewsItem({ article }: NewsItemProps) {
@@ -18,16 +19,19 @@ export default function NewsItem({ article }: NewsItemProps) {
         alt={article.title}
         width={240}
         height={180}
-        className="rounded-[20px] h-auto"
+        className="rounded-[20px] h-auto hover:transform hover:scale-105 transition-all duration-200"
       />
       <div className="flex flex-col gap-[10px]">
-        <div>
-          <p className="text-[15px] text-[#000000ff] leading-[2]">
+        <div className="flex gap-[10px] items-center text-[15px]">
+          <p className="text-[#000000ff] leading-[2]">
             {new Intl.DateTimeFormat("ja-JP", {
               year: "numeric",
               month: "long",
               day: "numeric",
             }).format(new Date(article.publishedAt))}
+          </p>
+          <p className="leading-none bg-[linear-gradient(0deg,_#00c6fb_0%,_#005bea_100%)] rounded-[30px] px-[10px] py-[3px] text-white font-medium">
+            {article.categories.map((category) => category.title).join(", ")}
           </p>
         </div>
 

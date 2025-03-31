@@ -14,6 +14,7 @@ export default function Navbar() {
   const navigateTop = () => {
     if (isHomepage) {
       window.scrollTo({ top: 0, behavior: "smooth" });
+      window.history.replaceState(null, "", "/");
     } else {
       router.push("/");
     }
@@ -76,7 +77,7 @@ export default function Navbar() {
             </li>
             <li>
               <GradientButton
-                iconComponent={<MailOutline />}
+                iconComponent={MailOutline}
                 href="/contact"
                 text="お問い合わせ"
                 from="navbar"

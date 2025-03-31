@@ -1,5 +1,9 @@
+"use client";
 import { useHoverStore } from "@/app/store";
-export default function ArrowDownCircle() {
+type Props = {
+  fill: string;
+};
+export default function ArrowDownCircle({ fill }: Props) {
   const { active, from } = useHoverStore();
   return (
     <svg
@@ -7,7 +11,7 @@ export default function ArrowDownCircle() {
       height="24px"
       viewBox="0 -960 960 960"
       width="24px"
-      fill={active && from === "spoship" ? "url(#gradient)" : "#fff"}
+      fill={fill}
     >
       <defs>
         <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">

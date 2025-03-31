@@ -37,7 +37,7 @@ export default function CompanySection() {
     }),
   };
   return (
-    <div>
+    <div className="py-20">
       <div className="flex items-end flex-col px-10">
         <p className="text-[#333] text-2xl font-medium leading-none">
           会社概要
