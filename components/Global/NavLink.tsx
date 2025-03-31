@@ -29,7 +29,6 @@ export default function EnhancedNavLink({
       </ScrollLink>
     );
   }
-
   // If we're on a different page, use regular Link to navigate to home page with hash
   return (
     <Link
