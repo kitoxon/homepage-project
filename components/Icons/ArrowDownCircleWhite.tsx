@@ -1,4 +1,5 @@
 import { useHoverStore } from "@/app/store";
+const gradientId = "gradient-arrow-down";
 export default function ArrowDownCircle() {
   const { active, from } = useHoverStore();
   return (
@@ -7,10 +8,10 @@ export default function ArrowDownCircle() {
       height="24px"
       viewBox="0 -960 960 960"
       width="24px"
-      fill={active && from === "brandinsight" ? "#fff" : "url(#gradient)"}
+      fill={active && from === "brandinsight" ? "#fff" : `url(#${gradientId})`}
     >
       <defs>
-        <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+        <linearGradient id={gradientId} x1="0%" y1="0%" x2="100%" y2="100%">
           <stop offset="0%" stopColor="#00c6fb" />
           <stop offset="100%" stopColor="#005bea" />
         </linearGradient>
