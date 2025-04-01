@@ -39,10 +39,10 @@ export default function Footer() {
     },
   ];
   return (
-    <footer className="rounded-tr-[150px] bg-white py-[60px]">
-      <div className="max-w-[80rem] w-full mx-auto px-10">
-        <div className="flex items-center gap-10">
-          <div className="w-1/2">
+    <footer className="rounded-tr-[60px] md:rounded-tr-[150px] bg-white py-[60px]">
+      <div className="max-w-[80rem] w-full mx-auto px-5 md:px-10">
+        <div className="flex md:items-center flex-col md:flex-row gap-10">
+          <div className="md:w-1/2">
             <div className="w-40 h-40 content-center">
               <Image
                 src="/logo.webp"
@@ -67,7 +67,7 @@ export default function Footer() {
             </div>
           </div>
 
-          <div className="flex w-1/2 flex-col">
+          <div className="flex md:w-1/2 flex-col">
             <ul className="w-full">
               {links.map((link) => (
                 <li key={link.title}>

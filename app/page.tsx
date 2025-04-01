@@ -20,7 +20,10 @@ export default function Home() {
       <section id="company" className="bg-white">
         <CompanySection />
       </section>
-      <section id="news" className="bg-white rounded-bl-[150px]">
+      <section
+        id="news"
+        className="bg-white rounded-bl-[60px] md:rounded-bl-[150px]"
+      >
         <NewsSection />
       </section>
       <section id="recruit">

@@ -1,14 +1,18 @@
 import { useHoverStore } from "@/app/store";
-
-export default function FbIcon() {
+type props = {
+  defaultFill?: string;
+};
+export default function FbIcon({ defaultFill }: props) {
   const { active, from } = useHoverStore();
+  const fillColor =
+    active && from === "facebook" ? "url(#gradient)" : defaultFill || "#000";
   return (
     <svg
       width={24}
       height={24}
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 512 512"
-      fill={active && from === "facebook" ? "url(#gradient)" : "#000"}
+      fill={fillColor}
     >
       <defs>
         <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">

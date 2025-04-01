@@ -38,30 +38,30 @@ export default function CompanySection() {
   };
   return (
     <div className="py-20">
-      <div className="flex items-end flex-col px-10">
+      <div className="flex items-end flex-col px-5 md:px-10">
         <p className="text-[#333] text-2xl font-medium leading-none">
           会社概要
         </p>
-        <p className="text-[#f5f5f5] text-[144px] leading-none font-semibold tracking-[-0.07em] font-poppins">
+        <p className="text-[#f5f5f5] text-[64px] md:text-[144px] leading-none font-semibold tracking-[-0.07em] font-poppins">
           Company
         </p>
       </div>
-      <div className="flex items-end">
+      <div className="flex md:items-end md:flex-row flex-col-reverse">
         <motion.div
           ref={ref2}
           initial="hidden"
           animate={inView2 ? "visible" : "hidden"}
           variants={imageVariants}
-          className="pr-10 w-[50%]"
+          className="pr-5 md:pr-10 md:w-[50%]"
         >
-          <div className="bg-[url(/assets/company-img.webp)] h-[466px] rounded-br-[50px] rounded-tr-[50px] bg-cover bg-center"></div>
+          <div className="bg-[url(/assets/company-img.webp)] h-[466px] rounded-br-[30px] rounded-tr-[30px] md:rounded-br-[50px] md:rounded-tr-[50px] bg-cover bg-center"></div>
         </motion.div>
         <motion.div
           ref={ref1}
           initial="hidden"
           animate={inView1 ? "visible" : "hidden"}
           variants={divVariants}
-          className="text-[#333] text-[15px] w-[50%] leading-[1.8] pb-[200px]"
+          className="text-[#333] text-[15px] md:w-[50%] leading-[1.8] md:pb-[200px] pb-10 px-5 md:px-0"
         >
           <div className="p-[30px] flex border-b-1 w-full">
             <p className="min-w-[120px] font-medium">会社名</p>

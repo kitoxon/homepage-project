@@ -41,6 +41,7 @@ export default function IconButton({
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={() => setHovered(false)}
         href={href}
+        target={href?.startsWith("http") ? "_blank" : undefined}
         className={`${baseStyle} ${gradientStyle} ${className} group`}
       >
         {commonContent}

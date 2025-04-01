@@ -19,7 +19,7 @@ export default function NewsAll({ initialNews }: { initialNews: any[] }) {
 
   return (
     <>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-10 mt-6 p-20 items-stretch">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-10 mt-6 md:p-20 py-20 items-stretch">
         {visibleNews.map((article) => (
           <NewsCard key={article.slug.current} article={article} />
         ))}

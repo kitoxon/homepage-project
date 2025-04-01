@@ -21,20 +21,21 @@ export default function RecruitSection() {
     }),
   };
   return (
-    <div className="max-w-[80rem] mx-auto px-10 py-[120px]">
+    <div className="max-w-[80rem] mx-auto px-5 md:px-10 py-[120px]">
       <motion.div
         ref={ref}
         initial="hidden"
         animate={inView ? "visible" : "hidden"}
         variants={divVariants}
-        className="text-white flex gap-10 w-full items-center"
+        className="text-white flex gap-10 w-full md:items-center md:flex-row flex-col"
       >
-        <p className="text-4xl font-semibold leading-[1.3] text-left break-keep w-1/2">
+        <p className="text-2xl md:text-4xl font-semibold leading-[1.3] text-left break-keep w-1/2">
           スポーツの価値を 私たちと一緒に高めませんか？
         </p>
-        <div className="flex flex-col gap-10 w-1/2 max-h-[180px] h-full justify-center">
-          <p className="break-keep text-[15px] font-medium leading-[2]">
+        <div className="flex flex-col gap-10 md:w-1/2 max-h-[180px] h-full justify-center">
+          <p className="md:break-keep text-[15px] font-medium leading-[2]">
             わたしたちは個のちからを最大限に活かしたチーム戦を実践しています。
+            <br />
             チームのビジョンに共感し、共に前進できる仲間を探しています。
           </p>
           <div className="flex justify-start">

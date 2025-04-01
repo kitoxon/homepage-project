@@ -41,6 +41,7 @@ export default function IconButton({
           setActive(false), setFrom("");
         }}
         href={href}
+        target="_blank"
         className={`${baseStyle} ${gradientStyle} ${className} group`}
       >
         <span className="absolute w-full inset-0 bg-[linear-gradient(0deg,_#00c6fb_0%,_#005bea_100%)] opacity-0 group-hover:opacity-100 transition-opacity duration-300" />

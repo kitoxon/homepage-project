@@ -16,7 +16,7 @@ type Props = {
 export default function NewsDetail({ article }: Props) {
   const router = useRouter();
   return (
-    <div className="max-w-7xl pt-32 pb-20 px-10 mx-auto">
+    <div className="max-w-7xl pt-32 pb-20 px-5 md:px-10 mx-auto">
       <div
         onClick={() => router.push("/#news")}
         className="flex items-center gap-1 cursor-pointer"
