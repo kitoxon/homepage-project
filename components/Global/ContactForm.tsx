@@ -1,8 +1,8 @@
 // components/ContactForm.tsx
 "use client";
 
-import { ChangeEvent, useState } from "react";
-
+import { ChangeEvent, useState, useRef } from "react";
+import Alert from "./Alert";
 type FormData = {
   name: string;
   company: string;
@@ -10,9 +10,8 @@ type FormData = {
   phone: string;
   department: string;
   position: string;
-  subject: string;
   message: string;
-  contactType: string;
+  inquiryType: string;
   file: File | null;
 };
 
@@ -24,14 +23,20 @@ export default function ContactForm() {
     phone: "",
     department: "",
     position: "",
-    subject: "",
     message: "",
-    contactType: "",
+    inquiryType: "",
     file: null,
   });
-
-  const [submitted, setSubmitted] = useState(false);
+  const [alert, setAlert] = useState<{
+    message: string;
+    type?: "success" | "error";
+  } | null>(null);
+  const showError = (msg: string) => setAlert({ message: msg, type: "error" });
+  const showSuccess = (msg: string) =>
+    setAlert({ message: msg, type: "success" });
+  const [loading, setLoading] = useState(false);
   const [fileName, setFileName] = useState<string | null>(null);
+  const agreeRef = useRef<HTMLInputElement>(null);
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
   ) => {
@@ -52,11 +57,62 @@ export default function ContactForm() {
   const onFileChange = (file: File | null) => {
     setForm((prev) => ({ ...prev, file }));
   };
-  const handleSubmit = (e: React.FormEvent) => {
+  const phoneRegex = /^0\d{9}$|^0\d{2,4}-\d{2,4}-\d{4}$/;
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // TODO: Send form to API
-    console.log(form);
-    setSubmitted(true);
+
+    // if (!phoneRegex.test(form.phone)) {
+    //   showError(
+    //     "電話番号の形式が正しくありません。例: 0901234567 または 090-1234-5678",
+    //   );
+    //   return;
+    // }
+    setLoading(true);
+
+    try {
+      const formData = new FormData();
+      formData.append("company", form.company);
+      formData.append("name", form.name);
+      formData.append("email", form.email);
+      formData.append("phone", form.phone);
+      formData.append("message", form.message);
+      formData.append("department", form.department);
+      formData.append("position", form.position);
+      formData.append("inquiryType", form.inquiryType);
+      if (form.file) {
+        formData.append("file", form.file);
+      }
+
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        body: formData,
+      });
+      const result = await res.json();
+      if (result.success) {
+        // setSubmitted(true);
+        showSuccess("送信されました。ありがとうございました！");
+        setForm({
+          company: "",
+          name: "",
+          email: "",
+          phone: "",
+          message: "",
+          department: "",
+          position: "",
+          inquiryType: "",
+          file: null,
+        });
+        if (agreeRef.current) {
+          agreeRef.current.checked = false;
+        }
+      } else {
+        showError("送信に失敗しました。");
+      }
+    } catch (error) {
+      showError("送信に失敗しました。");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -86,6 +142,7 @@ export default function ContactForm() {
         <input
           type="text"
           name="name"
+          required
           value={form.name}
           onChange={handleChange}
           placeholder="お名前をご記入ください"
@@ -158,9 +215,12 @@ export default function ContactForm() {
           <label className="flex items-center gap-2 p-2 hover:bg-[#fafafa] cursor-pointer">
             <input
               type="radio"
-              name="contactType"
-              value="brandInsight"
-              checked={form.contactType === "brandInsight"}
+              name="inquiryType"
+              value="Brand Insight（ブランドインサイト）について"
+              checked={
+                form.inquiryType ===
+                "Brand Insight（ブランドインサイト）について"
+              }
               onChange={handleChange}
               required
             />
@@ -170,9 +230,11 @@ export default function ContactForm() {
           <label className="flex items-center gap-2 p-2 hover:bg-[#fafafa] cursor-pointer">
             <input
               type="radio"
-              name="contactType"
-              value="spoship"
-              checked={form.contactType === "spoship"}
+              name="inquiryType"
+              value="SpoShip（スポシップ）メディアについて"
+              checked={
+                form.inquiryType === "SpoShip（スポシップ）メディアについて"
+              }
               onChange={handleChange}
               required
             />
@@ -182,9 +244,9 @@ export default function ContactForm() {
           <label className="flex items-center gap-2 p-2 hover:bg-[#fafafa] cursor-pointer">
             <input
               type="radio"
-              name="contactType"
-              value="nonService"
-              checked={form.contactType === "nonService"}
+              name="inquiryType"
+              value="サービス以外"
+              checked={form.inquiryType === "サービス以外"}
               onChange={handleChange}
               required
             />
@@ -230,6 +292,7 @@ export default function ContactForm() {
           <input
             type="checkbox"
             name="terms"
+            ref={agreeRef}
             required
             onChange={handleChange}
             className="mr-2"
@@ -244,15 +307,43 @@ export default function ContactForm() {
       </div>
       <button
         type="submit"
+        disabled={loading}
         className="mt-5 w-full bg-[linear-gradient(0deg,_#00c6fb_0%,_#005bea_100%)] text-white py-3 rounded font-bold cursor-pointer transition-all transform hover:translate-y-1 duration-300"
       >
-        送信する
+        {loading ? (
+          <div className="flex items-center justify-center gap-2">
+            <svg
+              className="w-5 h-5 animate-spin text-white"
+              viewBox="0 0 24 24"
+            >
+              <circle
+                cx="12"
+                cy="12"
+                r="10"
+                stroke="transparent"
+                strokeWidth="4"
+                fill="none"
+              />
+              <path
+                d="M4 12a8 8 0 018-8"
+                stroke="#fff"
+                strokeWidth="4"
+                strokeLinecap="round"
+              />
+            </svg>
+            <span>送信中...</span>
+          </div>
+        ) : (
+          "送信する"
+        )}
       </button>
 
-      {submitted && (
-        <p className="text-green-500 text-center mt-4">
-          送信されました。ありがとうございました！
-        </p>
+      {alert && (
+        <Alert
+          message={alert.message}
+          type={alert.type}
+          onClose={() => setAlert(null)}
+        />
       )}
     </form>
   );
