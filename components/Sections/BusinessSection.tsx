@@ -64,7 +64,7 @@ export default function BusinessSection() {
               <p className="text-lg mb-5 leading-none font-medium">
                 Brand Insight(ブランドインサイト)　
               </p>
-              <p className="text-2xl md:text-4xl leading-[1.3] mb-10 font-medium break-keep">
+              <p className="text-2xl md:text-4xl leading-[1.3] mb-10 font-medium">
                 スポンサー広告価値換算サービス
               </p>
               <p className="leading-[2] text-[15px] whitespace-break-spaces">
@@ -105,11 +105,11 @@ export default function BusinessSection() {
               <p
                 style={{
                   background:
-                    "linear-gradient(var(--g-angle), var(--g-color-0) var(--g-position-0), var(--g-color-1) var(--g-position-1))",
+                    "linear-gradient(var(--g-angle), var(--g-color-0) var(--g-position-3), var(--g-color-1) var(--g-position-1))",
                   backgroundClip: "text",
                   WebkitBackgroundClip: "text",
                 }}
-                className="font-semibold text-lg leading-none text-transparent mb-5"
+                className="font-semibold text-lg leading-none text-transparent mb-4 pb-1"
               >
                 SpoShip(スポシプ)メディア
               </p>
