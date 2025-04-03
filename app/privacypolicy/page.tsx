@@ -7,7 +7,7 @@ export default function PrivacyPolicyPage() {
   );
   return (
     <div className="mt-36">
-      <div className="container mx-auto whitespace-break-spaces">
+      <div className="max-w-[80%] md:container mx-auto whitespace-break-spaces">
         <h1 className="text-6xl font-semibold mb-10 text-[#333]">
           プライバシーポリシー
         </h1>

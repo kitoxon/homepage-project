@@ -35,6 +35,7 @@ export default function NewsList({ news }: { news: any[] }) {
       })}
       <div className="flex justify-center">
         <IconButton
+          gradientId="newsGradient"
           iconComponent={ArrowDownCircle}
           text="すべてのお知らせを見る"
           from="news"

@@ -2,10 +2,13 @@ import { useHoverStore } from "@/app/store";
 type props = {
   defaultFill?: string;
 };
+const gradientId = "x-icon";
 export default function XIcon({ defaultFill }: props) {
   const { active, from } = useHoverStore();
   const fillColor =
-    active && from === "twitter" ? "url(#gradient)" : defaultFill || "#000";
+    active && from === "twitter"
+      ? `url(#${gradientId})`
+      : defaultFill || "#000";
   return (
     <svg
       width={24}
@@ -15,7 +18,7 @@ export default function XIcon({ defaultFill }: props) {
       fill={fillColor}
     >
       <defs>
-        <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+        <linearGradient id={gradientId} x1="0%" y1="0%" x2="100%" y2="100%">
           <stop offset="0%" stopColor="#00c6fb" />
           <stop offset="100%" stopColor="#005bea" />
         </linearGradient>

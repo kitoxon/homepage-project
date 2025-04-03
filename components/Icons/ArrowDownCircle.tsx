@@ -2,8 +2,9 @@
 import { useHoverStore } from "@/app/store";
 type Props = {
   fill: string;
+  gradientId: string;
 };
-export default function ArrowDownCircle({ fill }: Props) {
+export default function ArrowDownCircle({ fill, gradientId }: Props) {
   const { active, from } = useHoverStore();
   return (
     <svg
@@ -14,7 +15,7 @@ export default function ArrowDownCircle({ fill }: Props) {
       fill={fill}
     >
       <defs>
-        <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+        <linearGradient id={gradientId} x1="0%" y1="0%" x2="100%" y2="100%">
           <stop offset="0%" stopColor="#00c6fb" />
           <stop offset="100%" stopColor="#005bea" />
         </linearGradient>

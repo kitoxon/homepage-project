@@ -24,13 +24,16 @@ export default function ContactButton() {
         </defs>
         <path d="M160-160q-33 0-56.5-23.5T80-240v-480q0-33 23.5-56.5T160-800h640q33 0 56.5 23.5T880-720v480q0 33-23.5 56.5T800-160H160Zm320-280L160-640v400h640v-400L480-440Zm0-80 320-200H160l320 200ZM160-640v-80 480-400Z" />
       </svg>
-      <span className="transition-all font-medium duration-300 bg-gradient-to-b from-[#00c6fb] to-[#005bea] bg-clip-text group-hover:from-white group-hover:to-white text-transparent">
+      <span className="transition-all font-medium duration-300 bg-gradient-to-b from-[#00c6fb] to-[#005bea] bg-clip-text text-transparent">
         お問い合わせ
       </span>
     </>
   );
   return (
-    <a href="/contact" className={`${baseStyle} ${gradientStyle} group`}>
+    <a
+      href="/contact"
+      className={`${baseStyle} ${gradientStyle} hover:transform hover:translate-y-1`}
+    >
       <span className="relative z-10 flex items-center justify-center gap-2">
         {commonContent}
       </span>

@@ -11,7 +11,7 @@ type IconButtonProps = {
   from: string;
 };
 const baseStyle =
-  "flex items-center space-x-2 px-6 py-3 rounded-full text-white text-sm transition-all duration-300";
+  "flex items-center space-x-2 px-6 py-3 rounded-full text-white text-sm transition-all duration-300 z-0";
 
 const gradientStyle = "bg-white border-transparent relative overflow-hidden";
 export default function IconButton({

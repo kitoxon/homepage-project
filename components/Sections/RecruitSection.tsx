@@ -40,6 +40,7 @@ export default function RecruitSection() {
           </p>
           <div className="flex justify-start">
             <IconButton
+              gradientId="recruitGradient"
               iconComponent={ArrowDownCircle}
               text="
               募集一覧を見る"

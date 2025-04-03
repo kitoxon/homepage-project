@@ -216,29 +216,26 @@ export default function ContactForm() {
             <input
               type="radio"
               name="inquiryType"
-              value="Brand Insight（ブランドインサイト）について"
+              value="Brand Insight(ブランドインサイト)について"
               checked={
-                form.inquiryType ===
-                "Brand Insight（ブランドインサイト）について"
+                form.inquiryType === "Brand Insight(ブランドインサイト)について"
               }
               onChange={handleChange}
               required
             />
-            <span>Brand Insight（ブランドインサイト）について</span>
+            <span>Brand Insight(ブランドインサイト)について</span>
           </label>
 
           <label className="flex items-center gap-2 p-2 hover:bg-[#fafafa] cursor-pointer">
             <input
               type="radio"
               name="inquiryType"
-              value="SpoShip（スポシップ）メディアについて"
-              checked={
-                form.inquiryType === "SpoShip（スポシップ）メディアについて"
-              }
+              value="SpoShip(スポシプ)メディアについて"
+              checked={form.inquiryType === "SpoShip(スポシプ)メディアについて"}
               onChange={handleChange}
               required
             />
-            <span>SpoShip（スポシップ）メディアについて</span>
+            <span>SpoShip(スポシプ)メディアについて</span>
           </label>
 
           <label className="flex items-center gap-2 p-2 hover:bg-[#fafafa] cursor-pointer">
@@ -298,7 +295,7 @@ export default function ContactForm() {
             className="mr-2"
           />
           ご提供いただく
-          <a href="/privacy-policy" className="underline">
+          <a href="/privacypolicy" className="underline">
             個人情報の取り扱い方針
           </a>
           に同意する{" "}

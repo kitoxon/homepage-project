@@ -8,8 +8,9 @@ type IconButtonProps = {
   onClick?: () => void;
   href?: string;
   className?: string;
-  iconComponent: ComponentType<{ fill: string }>;
+  iconComponent: ComponentType<{ fill: string; gradientId: string }>;
   from: string;
+  gradientId: string;
 };
 const baseStyle =
   "flex items-center space-x-2 px-6 py-3 rounded-full text-white text-sm transition-all duration-300";
@@ -23,13 +24,14 @@ export default function IconButton({
   className,
   iconComponent: IconComponent,
   from,
+  gradientId,
 }: IconButtonProps) {
   const { setActive, setFrom } = useHoverStore();
   const [hovered, setHovered] = useState(false);
-  const fill = hovered ? "url(#gradient)" : "#fff";
+  const fill = hovered ? `url(#${gradientId})` : "#fff";
   const commonContent = (
     <>
-      <IconComponent fill={fill} />
+      <IconComponent fill={fill} gradientId={gradientId} />
       <span className="transition-all duration-300 font-medium group-hover:bg-[linear-gradient(0deg,_#00c6fb_0%,_#005bea_100%)] group-hover:bg-clip-text group-hover:text-transparent">
         {text}
       </span>
@@ -41,6 +43,7 @@ export default function IconButton({
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={() => setHovered(false)}
         href={href}
+        aria-label={text ? text : ""}
         target={href?.startsWith("http") ? "_blank" : undefined}
         className={`${baseStyle} ${gradientStyle} ${className} group`}
       >

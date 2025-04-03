@@ -3,7 +3,7 @@ import { defineField, defineType } from "sanity";
 
 export const contactType = defineType({
   name: "contact",
-  title: "Contact",
+  title: "お問い合わせフォーム",
   type: "document",
   icon: EnvelopeIcon,
   fields: [

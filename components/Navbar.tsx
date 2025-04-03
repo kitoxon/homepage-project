@@ -13,7 +13,9 @@ import ContactButton from "./Global/ContactButton";
 import XIcon from "./Icons/XIcon";
 import FbIcon from "./Icons/FbIcon";
 import FileIcon from "./Icons/FileIcon";
+import { useHoverStore } from "@/app/store";
 export default function Navbar() {
+  const { setActive, setFrom } = useHoverStore();
   const router = useRouter();
   const pathName = usePathname();
   const isHomepage = pathName === "/";
@@ -92,6 +94,7 @@ export default function Navbar() {
             </li>
             <li>
               <GradientButton
+                gradientId="mailGradient"
                 iconComponent={MailOutline}
                 href="/contact"
                 text="お問い合わせ"
@@ -123,6 +126,7 @@ export default function Navbar() {
                 width={184}
                 height={40}
                 alt="Navbar Logo"
+                onClick={() => setMenuOpen(false)}
               />
             </div>
             <div className="space-y-6 pt-16 grid grid-cols-2 font-bold text-white">
@@ -192,6 +196,13 @@ export default function Navbar() {
                 className="p-[10px]"
                 href="https://twitter.com/NextStairsjp"
                 target="_blank"
+                onMouseEnter={() => {
+                  setActive(true);
+                  setFrom("twitter");
+                }}
+                onMouseLeave={() => {
+                  setActive(false);
+                }}
               >
                 <XIcon defaultFill="#fff" />
               </a>
@@ -199,6 +210,13 @@ export default function Navbar() {
                 href="https://www.facebook.com/NextStairsjp"
                 className="p-[10px]"
                 target="_blank"
+                onMouseEnter={() => {
+                  setActive(true);
+                  setFrom("facebook");
+                }}
+                onMouseLeave={() => {
+                  setActive(false);
+                }}
               >
                 <FbIcon defaultFill="#fff" />
               </a>
@@ -206,6 +224,13 @@ export default function Navbar() {
                 href="https://note.com/nextstairs"
                 target="_blank"
                 className="p-[10px]"
+                onMouseEnter={() => {
+                  setActive(true);
+                  setFrom("note");
+                }}
+                onMouseLeave={() => {
+                  setActive(false);
+                }}
               >
                 <FileIcon defaultFill="#fff" />
               </a>

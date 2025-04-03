@@ -3,7 +3,7 @@ import { ArchiveIcon } from "@sanity/icons";
 
 export const emailTemplate = defineType({
   name: "emailTemplate",
-  title: "Email Template",
+  title: "メールテンプレート",
   type: "document",
   icon: ArchiveIcon,
   fields: [

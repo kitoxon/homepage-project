@@ -113,7 +113,7 @@ export default function BusinessSection() {
               >
                 SpoShip(スポシプ)メディア
               </p>
-              <p className="text-2xl md:text-4xl mb-10 leading-[1.3] font-semibold">
+              <p className="text-2xl md:text-4xl mb-10 leading-[1.3] font-semibold md:break-keep">
                 スポーツスポンサーシップメディア
               </p>
               <p className="leading-[2] text-[15px]">
@@ -127,6 +127,7 @@ export default function BusinessSection() {
               </p>
               <div className="my-[30px] flex justify-center">
                 <GradientButton
+                  gradientId="sposhipGradient"
                   iconComponent={ArrowDownCircle}
                   text="詳しくはこちら"
                   href="https://spoship.com"

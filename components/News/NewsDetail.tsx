@@ -43,7 +43,7 @@ export default function NewsDetail({ article }: Props) {
           <h1 className="text-[#000000ff] font-bold text-[28px] leading-[1.3]">
             {article.title}
           </h1>
-          <div className="mt-20 leading-[1.4] text-base">
+          <div className="mt-20 leading-[1.4] text-base text-[#333]">
             {Array.isArray(article.body) && (
               <PortableText
                 value={article.body}
@@ -61,6 +61,21 @@ export default function NewsDetail({ article }: Props) {
                             className="object-scale-down"
                           />
                         </div>
+                      );
+                    },
+                  },
+                  marks: {
+                    link: ({ value, children }: any) => {
+                      const href = value?.href;
+                      return (
+                        <a
+                          href={href}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-[#007cff] underline hover:text-blue-800 transition"
+                        >
+                          {children}
+                        </a>
                       );
                     },
                   },
