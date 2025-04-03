@@ -3,7 +3,7 @@ import ComingSoon from "@/components/Global/ComingSoon";
 export default function DocumentPage() {
   return (
     <div>
-      <ComingSoon />
+      <ComingSoon title="お役立ち資料" />
     </div>
   );
 }

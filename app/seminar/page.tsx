@@ -3,7 +3,7 @@ import ComingSoon from "@/components/Global/ComingSoon";
 export default function SeminarPage() {
   return (
     <div>
-      <ComingSoon />
+      <ComingSoon title="セミナー" />
     </div>
   );
 }
