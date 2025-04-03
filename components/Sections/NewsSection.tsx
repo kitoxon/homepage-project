@@ -6,7 +6,7 @@ export default async function NewsSection() {
     <div className="min-h-screen pt-20 pb-20 md:pb-[140px] flex flex-col items-center relative overflow-hidden">
       <div className="w-full max-w-[1280px] px-5 md:px-10 relative mx-auto">
         <div
-          className="absolute top-[52px] left-[68px] md:top-[122px] md:left-[142px] w-[2000px] h-[calc(100%-50px)] md:h-[calc(100%-140px)] bg-[#f5f5f5]
+          className="absolute top-[52px] left-[68px] md:top-[122px] md:left-[142px] w-screen min-w-screen h-[calc(100%-50px)] md:h-[calc(100%-140px)] bg-[#f5f5f5]
                          rounded-tl-[50px] rounded-bl-[50px]"
         />
         <div>
