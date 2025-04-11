@@ -23,7 +23,7 @@ export default function Alert({
   return (
     <div
       className={`fixed top-5 right-1/2 transform translate-x-1/2  text-sm p-3 rounded-lg shadow-lg text-white transition-all duration-300 z-50
-        ${type === "success" ? "bg-green-500" : "bg-tomato-500"}`}
+        ${type === "success" ? "bg-green-500" : "bg-[tomato]"}`}
     >
       {message}
     </div>
