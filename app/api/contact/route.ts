@@ -86,7 +86,7 @@ export async function POST(req: Request) {
   try {
     await transporter.sendMail(mailOptions);
     await transporter.sendMail({
-      from: `NextStairs <${process.env.EMAIL_USER}>`,
+      from: `NextStairs(ネクストステアーズ) <${process.env.EMAIL_USER}>`,
       to: email, // 👈 customer email
       subject: template.subject,
       text: emailText,
